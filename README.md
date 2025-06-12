@@ -109,7 +109,7 @@ class CourseResource extends Resource {
 ```
 
 ```php
-use Guava\FilamentModalRelationManagers\Actions\Action\RelationManagerAction;
+use Guava\FilamentModalRelationManagers\Actions\RelationManagerAction;
 
 // for example in edit page
 
