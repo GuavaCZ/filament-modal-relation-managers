@@ -4,9 +4,11 @@ namespace Guava\FilamentModalRelationManagers\Actions;
 
 use Closure;
 use Filament\Actions\Action;
+use Filament\Pages\Page;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\RelationManagers\RelationManagerConfiguration;
 use Illuminate\Database\Eloquent\Model;
+use Livewire\Component;
 
 class RelationManagerAction extends Action
 {
@@ -62,12 +64,17 @@ class RelationManagerAction extends Action
         parent::setUp();
 
         return $this
-            ->modalContent(function (Model $record) {
+            ->modalContent(function (Model $record, Component $livewire) {
                 return view('guava-modal-relation-managers::components.modal-relation-manager', [
                     'relationManager' => $this->normalizeRelationManagerClass($this->getRelationManager()),
                     'ownerRecord' => $record,
                     'isCompact' => $this->isCompact(),
                     'shouldHideRelationManagerHeading' => $this->shouldHideRelationManagerHeading(),
+                    'pageClass' => match (true) {
+                        $livewire instanceof Page => get_class($livewire),
+                        $livewire instanceof RelationManager => $livewire->getPageClass(),
+                        default => '',
+                    },
                 ]);
             })
             ->modalSubmitAction(false)
