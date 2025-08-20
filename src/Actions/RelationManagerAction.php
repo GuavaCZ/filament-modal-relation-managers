@@ -6,7 +6,6 @@ use Closure;
 use Filament\Actions\Action;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\RelationManagers\RelationManagerConfiguration;
-use Filament\Support\Enums\Width;
 use Illuminate\Database\Eloquent\Model;
 
 class RelationManagerAction extends Action
