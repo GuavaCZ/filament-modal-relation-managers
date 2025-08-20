@@ -40,78 +40,47 @@ composer require guava/filament-modal-relation-managers
 
 ## Assets
 
-Make sure you have a custom filament theme installed (more info in the official documentation [here](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme)) and add the following to your theme's `tailwind.config.js` content property, so that our CSS overrides are correctly built:
+Make sure you have a custom filament theme installed (more info in the official documentation [here](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme)) and add the following to your `theme.css` file property, so that our CSS overrides are correctly built:
 
-```js
-export default {
-   //...
-   content: [
-      // ...
-      './vendor/guava/filament-modal-relation-managers/resources/**/*.blade.php',
-   ]
-}
+```css
+@source '../../../../vendor/guava/filament-modal-relation-managers/resources/**/*';
 ```
 
 ## Usage
 
-
 You can use the `RelationManagerAction` anywhere you like to open the relation manager as a modal:
 
 ```php
-use Guava\FilamentModalRelationManagers\Actions\Table\RelationManagerAction;
+use Guava\FilamentModalRelationManagers\Actions\RelationManagerAction;
 
-// for example in a resource table
-
-class CourseResource extends Resource {
-
-    // ...
-
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->actions([
-                RelationManagerAction::make('lesson-relation-manager')
-                    ->label('View lessons')
-                    ->relationManager(LessonRelationManager::make()),
-            ])
-        // ...
-        ;
-    }
-
-    // ...
-}
+// for example in a filament table
+return $table
+    ->actions([
+        RelationManagerAction::make('lesson-relation-manager')
+            ->label('View lessons')
+            ->relationManager(LessonRelationManager::make()),
+    ])
+;
 ```
 
 ```php
-use Guava\FilamentModalRelationManagers\Actions\Infolist\RelationManagerAction;
+use Guava\FilamentModalRelationManagers\Actions\RelationManagerAction;
+// for example in a filament schema (form / infolist)
 
-// for example in a resource infolist
-
-class CourseResource extends Resource {
-
-    // ...
-
-    public static function infolist(Infolist $infolist): Infolist
-    {
-        return $infolist
-            ->schema([
-                TextEntry::make('title')
-                    ->suffixAction(RelationManagerAction::make()
-                        ->label('View lessons')
-                        ->relationManager(LessonRelationManager::make()))
-            ])
-        // ...
-        ;
-    }
-
-    // ...
-}
+return $schema
+    ->components([
+        TextEntry::make('title')
+            ->suffixAction(RelationManagerAction::make()
+                ->label('View lessons')
+                ->relationManager(LessonRelationManager::make()))
+    ])
+;
 ```
 
 ```php
 use Guava\FilamentModalRelationManagers\Actions\RelationManagerAction;
 
-// for example in edit page
+// for example in filament page
 
 class EditCourse extends EditRecord {
 
@@ -130,6 +99,21 @@ class EditCourse extends EditRecord {
     // ...
 }
 ```
+
+## Customization
+
+We have a compact style which has no padding around the table, so it touches the edge of the modal.
+
+To enable it:
+
+```php
+use Guava\FilamentModalRelationManagers\Actions\RelationManagerAction;
+
+RelationManagerAction::make()
+    ->compact();
+```
+
+
 ## Testing
 
 ```bash
