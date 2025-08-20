@@ -2,6 +2,7 @@
 
 namespace Guava\FilamentModalRelationManagers\Actions;
 
+use Closure;
 use Filament\Actions\Action;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\RelationManagers\RelationManagerConfiguration;
@@ -12,7 +13,9 @@ class RelationManagerAction extends Action
 {
     protected string | RelationManagerConfiguration $relationManager;
 
-    protected bool $hideRelationManagerHeading = true;
+    protected Closure | bool $hideRelationManagerHeading = true;
+
+    protected Closure | bool $compact = false;
 
     public static function getDefaultName(): ?string
     {
@@ -31,7 +34,7 @@ class RelationManagerAction extends Action
         return $this->relationManager;
     }
 
-    public function hideRelationManagerHeading(bool $hideRelationManagerHeading = true): static
+    public function hideRelationManagerHeading(Closure | bool $hideRelationManagerHeading = true): static
     {
         $this->hideRelationManagerHeading = $hideRelationManagerHeading;
 
@@ -40,7 +43,19 @@ class RelationManagerAction extends Action
 
     public function shouldHideRelationManagerHeading(): bool
     {
-        return $this->hideRelationManagerHeading;
+        return $this->evaluate($this->hideRelationManagerHeading);
+    }
+
+    public function compact(Closure | bool $compact = true): static
+    {
+        $this->compact = $compact;
+
+        return $this;
+    }
+
+    public function isCompact(): bool
+    {
+        return $this->evaluate($this->compact);
     }
 
     public function configure(): static
@@ -52,9 +67,8 @@ class RelationManagerAction extends Action
                 return view('guava-modal-relation-managers::components.modal-relation-manager', [
                     'relationManager' => $this->normalizeRelationManagerClass($this->getRelationManager()),
                     'ownerRecord' => $record,
+                    'isCompact' => $this->isCompact(),
                     'shouldHideRelationManagerHeading' => $this->shouldHideRelationManagerHeading(),
-                    'fixIconPaddingLeft' => (bool) $this->getModalIcon() && ! in_array($this->getModalWidth(), [Width::ExtraSmall, Width::Small]),
-                    'isModalSlideOver' => $this->isModalSlideOver(),
                 ]);
             })
             ->modalSubmitAction(false)
