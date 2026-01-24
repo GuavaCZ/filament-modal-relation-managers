@@ -1,6 +1,5 @@
 ![filament-modal-relation-managers Banner](https://github.com/GuavaCZ/filament-modal-relation-managers/raw/main/docs/images/banner.jpg)
 
-
 # Allows you to embed relation managers inside filament modals.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/guava/filament-modal-relation-managers.svg?style=flat-square)](https://packagist.org/packages/guava/filament-modal-relation-managers)
@@ -9,6 +8,14 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/guava/filament-modal-relation-managers.svg?style=flat-square)](https://packagist.org/packages/guava/filament-modal-relation-managers)
 
 This package allows you to embed any of your relation managers inside modals using a provided filament action.
+
+## Version compatibility
+
+| Filament version | Plugin version |
+|:----------------:|:--------------:| 
+|       3.x        |      1.x       |
+|       4.x        |      2.x       |
+|       5.x        |      3.x       |
 
 ## Showcase
 
@@ -22,13 +29,16 @@ https://github.com/user-attachments/assets/9613ec16-fe3a-4b94-ba03-f589d77764fa
 ![Screenshot 2](https://github.com/GuavaCZ/filament-modal-relation-managers/raw/main/docs/images/screenshot_02.png)
 ![Screenshot 3](https://github.com/GuavaCZ/filament-modal-relation-managers/raw/main/docs/images/screenshot_03.png)
 
-
-
 ## Support us
 
-Your support is key to the continual advancement of our plugin. We appreciate every user who has contributed to our journey so far.
+Your support is key to the continual advancement of our plugin. We appreciate every user who has contributed to our
+journey so far.
 
-While our plugin is available for all to use, if you are utilizing it for commercial purposes and believe it adds significant value to your business, we kindly ask you to consider supporting us through GitHub Sponsors. This sponsorship will assist us in continuous development and maintenance to keep our plugin robust and up-to-date. Any amount you contribute will greatly help towards reaching our goals. Join us in making this plugin even better and driving further innovation.
+While our plugin is available for all to use, if you are utilizing it for commercial purposes and believe it adds
+significant value to your business, we kindly ask you to consider supporting us through GitHub Sponsors. This
+sponsorship will assist us in continuous development and maintenance to keep our plugin robust and up-to-date. Any
+amount you contribute will greatly help towards reaching our goals. Join us in making this plugin even better and
+driving further innovation.
 
 ## Installation
 
@@ -40,7 +50,9 @@ composer require guava/filament-modal-relation-managers
 
 ## Assets
 
-Make sure you have a custom filament theme installed (more info in the official documentation [here](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme)) and add the following to your `theme.css` file property, so that our CSS overrides are correctly built:
+Make sure you have a custom filament theme installed (more info in the official
+documentation [here](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme)) and add the following to
+your `theme.css` file property, so that our CSS overrides are correctly built:
 
 ```css
 @source '../../../../vendor/guava/filament-modal-relation-managers/resources/**/*';
@@ -113,7 +125,6 @@ RelationManagerAction::make()
     ->compact();
 ```
 
-
 ## Testing
 
 ```bash
@@ -136,7 +147,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [Lukas Frey](https://github.com/GuavaCZ)
 - [All Contributors](../../contributors)
-- Spatie - Our package skeleton is a modified version of [Spatie's Package Skeleton](https://github.com/spatie/package-skeleton-laravel)
+- Spatie - Our package skeleton is a modified version
+  of [Spatie's Package Skeleton](https://github.com/spatie/package-skeleton-laravel)
 
 ## License
 
