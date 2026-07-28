@@ -54,7 +54,7 @@ return $table
     ]);
 ```
 
-Everything else, including schema and page actions and the compact style, is covered in the [documentation]([docs/3.x/01-introduction.md](https://guava.cz/developers/packages/filament-modal-relation-managers).
+Everything else, including schema and page actions and the compact style, is covered in the [documentation](https://guava.cz/developers/packages/filament-modal-relation-managers).
 
 ## Testing
 
