@@ -57,5 +57,6 @@ it('builds the modal content from the relation manager', function () {
         ->and($content->getData()['ownerRecord']->is($course))->toBeTrue()
         ->and($content->getData()['isCompact'])->toBeFalse()
         ->and($content->getData()['shouldHideRelationManagerHeading'])->toBeTrue()
-        ->and($content->getData()['pageClass'])->toBe(Courses::class);
+        ->and($content->getData()['pageClass'])->toBe(Courses::class)
+    ;
 });
