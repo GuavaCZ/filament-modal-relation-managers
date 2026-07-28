@@ -7,16 +7,15 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentModalRelationManagersServiceProvider extends PackageServiceProvider
 {
+    public static string $name = 'filament-modal-relation-managers';
+
+    public static string $viewNamespace = 'guava-modal-relation-managers';
+
     public function configurePackage(Package $package): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
-            ->name('guava-modal-relation-managers')
-            ->hasViews()
+            ->name(static::$name)
+            ->hasViews(static::$viewNamespace)
         ;
     }
 }

@@ -1,6 +1,8 @@
 {
     "name": "guava/filament-modal-relation-managers",
     "description": "Allows you to embed relation managers inside filament modals.",
+    "type": "library",
+    "license": "MIT",
     "keywords": [
         "Guava",
         "laravel",
@@ -8,8 +10,11 @@
         "filamentphp",
         "filament-modal-relation-managers"
     ],
-    "homepage": "https://github.com/guavaCZ/filament-modal-relation-managers",
-    "license": "MIT",
+    "homepage": "https://github.com/GuavaCZ/filament-modal-relation-managers",
+    "support": {
+        "issues": "https://github.com/GuavaCZ/filament-modal-relation-managers/issues",
+        "source": "https://github.com/GuavaCZ/filament-modal-relation-managers"
+    },
     "authors": [
         {
             "name": "Lukas Frey",
@@ -18,22 +23,23 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "filament/filament": "^5.0",
-        "illuminate/contracts": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/contracts": "^12.0|^13.0",
         "spatie/laravel-package-tools": "^1.14.0"
     },
     "require-dev": {
+        "larastan/larastan": "^3.0",
         "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^7.8|^8.1",
-        "nunomaduro/larastan": "^2.0.1",
-        "orchestra/testbench": "^8.8|^9.0|^10.0",
-        "pestphp/pest": "^2.0",
-        "pestphp/pest-plugin-arch": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
+        "nunomaduro/collision": "^8.0",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.8|^4.4",
+        "pestphp/pest-plugin": "^3.0|^4.0",
+        "pestphp/pest-plugin-arch": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.2|^4.1",
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0"
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -44,7 +50,9 @@
     "autoload-dev": {
         "psr-4": {
             "Guava\\FilamentModalRelationManagers\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     },
     "scripts": {
@@ -61,7 +69,7 @@
             "@php vendor/bin/testbench serve"
         ],
         "analyse": "vendor/bin/phpstan analyse",
-        "test": "vendor/bin/pest",
+        "test": "vendor/bin/pest --no-coverage",
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint"
     },
@@ -76,10 +84,7 @@
         "laravel": {
             "providers": [
                 "Guava\\FilamentModalRelationManagers\\FilamentModalRelationManagersServiceProvider"
-            ],
-            "aliases": {
-                "FilamentModalRelationManagers": "Guava\\FilamentModalRelationManagers\\Facades\\FilamentModalRelationManagers"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
