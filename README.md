@@ -9,7 +9,7 @@ This plugin allows you to embed any of your relation managers inside modals usin
 
 ## Documentation
 
-The full documentation is available at [guava.cz](https://guava.cz/developers/packages/filament-modal-relation-managers).
+The full documentation is available at [guava.cz](https://guava.cz/developers/packages/filament-modal-relation-managers?ref=github&utm_campaign=modal-relation-managers).
 
 ## Version compatibility
 
@@ -54,7 +54,7 @@ return $table
     ]);
 ```
 
-Everything else, including schema and page actions and the compact style, is covered in the [documentation](https://guava.cz/developers/packages/filament-modal-relation-managers).
+Everything else, including schema and page actions and the compact style, is covered in the [documentation](https://guava.cz/developers/packages/filament-modal-relation-managers?ref=github&utm_campaign=modal-relation-managers).
 
 ## Testing
 
